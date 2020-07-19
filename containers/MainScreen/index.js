@@ -29,7 +29,7 @@ const MainScreen = () => {
           onChange={onChange}
           dateValue={date}
         />
-        <StockList containerStyle={styles.stockListContainer} />
+        <StockList date={date} containerStyle={styles.stockListContainer} />
       </View>
     </View>
   );

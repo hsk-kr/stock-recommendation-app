@@ -29,7 +29,9 @@ const SearchBox = ({ containerStyle, dateValue, onChange }) => {
       >
         <Text style={styles.label}>
           분석 날짜:{" "}
-          {`${dateValue.getFullYear()}년 ${dateValue.getMonth()}월 ${dateValue.getDate()}일`}
+          {`${dateValue.getFullYear()}년 ${
+            dateValue.getMonth() + 1
+          }월 ${dateValue.getDate()}일`}
         </Text>
         <Text style={styles.sublabel}>
           * 터치하여 종목 추천 날짜를 바꿀 수 있습니다.
@@ -75,7 +77,7 @@ SearchBox.propTypes = {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#74b9ff",
+    backgroundColor: "#ffd32a",
     padding: 20,
     borderRadius: 10,
   },
@@ -106,7 +108,7 @@ const styles = StyleSheet.create({
   sublabel: {
     fontSize: 12,
     marginTop: 8,
-    color: "#dfe6e9",
+    color: "#808e9b",
   },
   btnDatePicker: {
     width: 200,

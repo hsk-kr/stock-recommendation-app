@@ -1,8 +1,30 @@
-import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import React, { useState, useEffect } from "react";
+import { StyleSheet, ScrollView, View, Text } from "react-native";
 import PropTypes from "prop-types";
 
-const StockList = ({ containerStyle }) => {
+// components
+import ListItem from "./ListItem";
+
+// lib
+import { fetchAnalyzedStocks } from "../../lib/network";
+
+const StockList = ({ date, containerStyle }) => {
+  const [stocks, setStocks] = useState([]);
+
+  useEffect(() => {
+    if (!date) return;
+
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+
+    fetchAnalyzedStocks(year, month, day).then((analyzedStocks) => {
+      if (analyzedStocks !== null) {
+        setStocks(analyzedStocks);
+      }
+    });
+  }, [date]);
+
   return (
     <View style={[styles.container, containerStyle]}>
       <View style={styles.titleContainer}>
@@ -14,21 +36,24 @@ const StockList = ({ containerStyle }) => {
           * W: 연속 기간 내 외국인|기관 총 매수 금액
         </Text>
       </View>
-      <View style={styles.stocksContainer}>
-        <Text>Stock List</Text>
-      </View>
+      <ScrollView style={styles.stocksContainer}>
+        {stocks.map((s, i) => (
+          <ListItem key={i} data={s} />
+        ))}
+      </ScrollView>
     </View>
   );
 };
 
 StockList.propTypes = {
   containerStyle: PropTypes.object,
+  date: PropTypes.object,
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#74b9ff",
+    backgroundColor: "#ffd32a",
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     padding: 30,
