@@ -10,3 +10,7 @@ export default {
   API_HOST: "127.0.0.1:12000",
 };
 ```
+
+# Preview
+
+![Preview](https://github.com/hsk-kr/stock-recommendation-app/preview/preview.gif?raw=true)
