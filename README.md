@@ -13,4 +13,4 @@ export default {
 
 # Preview
 
-![Preview](https://github.com/hsk-kr/stock-recommendation-app/preview/preview.gif?raw=true)
+![Preview](https://github.com/hsk-kr/stock-recommendation-app/blob/master/preview/preview.gif)
