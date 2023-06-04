@@ -1,15 +1,18 @@
 # Stock Recommendation App
 
-Written in ReactNative with Expo (Javascript)<br/>
-It works with the simple-api-server that is in my repository.
+This app is made by React Native with Expo<br/>
 
-# Environment File Example(env.js)
+To make this app work, you need to open the server that named 'simple-api-server' on my repository.
+
+## Environment File Example (env.js)
 
 ```javascript
 export default {
   API_HOST: "127.0.0.1:12000",
 };
 ```
+
+You need to change the API_HOST to your server address.
 
 # Preview
 
